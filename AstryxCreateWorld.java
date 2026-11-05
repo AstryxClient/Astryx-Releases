@@ -18,7 +18,7 @@ public class AstryxCreateWorld extends AstryxGuiScreen {
     private static final int BLUE = 0xFF648BFA;
 
     // Shared fixed UI scale used by every Astryx menu.
-    private static final float UI_SCALE = 1.00F;
+    private static final float UI_SCALE = 1.10F;
 
     private static final int TAB_OVERVIEW = 0;
     private static final int TAB_GAMEPLAY = 1;
