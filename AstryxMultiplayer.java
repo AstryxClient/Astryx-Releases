@@ -40,8 +40,8 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     private static final int BLUE = 0xFF648BFA;
 
     private static final int PARTICLE_COUNT = 65;
-    private static final int CARD_HEIGHT = 26;
-    private static final int CARD_GAP = 3;
+    private static final int CARD_HEIGHT = 30;
+    private static final int CARD_GAP = 4;
 
     private static final float PING_SCALE = 0.16F;
     private static final long RETRY_DELAY = 2500L;
@@ -109,7 +109,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     // ============================================================
 
     private int getHeaderButtonHeight() {
-        return clamp(height / 15, 28, 32);
+        return clamp(height / 14, 31, 36);
     }
 
     private int getHeaderButtonY() {
@@ -117,19 +117,19 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     }
 
     private int getHeaderButtonRightMargin() {
-        return clamp(width / 65, 7, 18);
+        return clamp(width / 62, 8, 20);
     }
 
     private int getHeaderButtonGap() {
-        return clamp(width / 180, 4, 9);
+        return clamp(width / 170, 5, 10);
     }
 
     private int getJoinLastWidth() {
-        return clamp(width / 4, 110, 150);
+        return clamp(width / 3, 125, 165);
     }
 
     private int getRefreshWidth() {
-        return clamp(width / 9, 55, 70);
+        return clamp(width / 8, 60, 76);
     }
 
     private int getJoinLastX() {
@@ -219,8 +219,8 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     }
 
     private void updateListBounds() {
-        listTop = Math.max(45, height / 9);
-        listBottom = Math.max(listTop + 30, height - 52);
+        listTop = Math.max(42, height / 10);
+        listBottom = Math.max(listTop + 34, height - 42);
     }
 
     @Override
@@ -862,7 +862,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     // ============================================================
 
     private int getListWidth() {
-        return Math.max(220, Math.min(620, width - 56));
+        return Math.max(240, Math.min(700, width - 44));
     }
 
     private int getListLeft() {
@@ -983,7 +983,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
             );
         }
 
-        drawServerIcon(server, x + 7, y + 3, 20);
+        drawServerIcon(server, x + 8, y + 4, 22);
 
         int textLeft = x + 34;
         int arrowX = x + cardWidth - 26;
@@ -996,10 +996,10 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
                 : server.serverName;
 
         regularFont.drawString(
-                trimText(serverName, textWidth, 0.15F),
+                trimText(serverName, textWidth, 0.16F),
                 textLeft,
                 y + 2,
-                0.15F,
+                0.16F,
                 0xFFFFFFFF
         );
 
@@ -1204,7 +1204,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
             return;
         }
 
-        float scale = 0.65F;
+        float scale = 0.70F;
         int scaledMaxWidth = (int) (maxWidth / scale);
 
         String trimmed = fontRendererObj.trimStringToWidth(
