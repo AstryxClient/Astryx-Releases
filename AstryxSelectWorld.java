@@ -15,7 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class AstryxSelectWorld extends GuiScreen implements GuiYesNoCallback {
+public class AstryxSelectWorld extends AstryxGuiScreen implements GuiYesNoCallback {
 
     // Shared fixed scale used by Astryx menus.
     // Minecraft's GUI scale must not affect the size of this interface.
@@ -1560,7 +1560,7 @@ public class AstryxSelectWorld extends GuiScreen implements GuiYesNoCallback {
     // ============================================================
 
     @Override
-    public void drawScreen(
+    protected void drawAstryxScreen(
             int mouseX,
             int mouseY,
             float partialTicks

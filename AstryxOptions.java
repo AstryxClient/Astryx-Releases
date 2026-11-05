@@ -15,10 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class AstryxOptions extends GuiScreen {
+public class AstryxOptions extends AstryxGuiScreen {
 
     private static final float UI_SCALE = 1.30F;
-    private static final float REFERENCE_GUI_SCALE = 2.0F;
 
     private final GuiScreen parent;
 
@@ -77,22 +76,8 @@ public class AstryxOptions extends GuiScreen {
         panelRight = width;
         panelBottom = height;
 
-        /*
-         * Minecraft's GUI scale changes the number of logical GUI
-         * pixels available. Compensate for that so the actual
-         * on-screen dimensions remain consistent.
-         *
-         * The reference scale of 2 preserves the original sizing
-         * at Minecraft GUI scale factor 2.
-         */
-        int guiScaleFactor = new ScaledResolution(mc).getScaleFactor();
-
-        if (guiScaleFactor < 1) {
-            guiScaleFactor = 1;
-        }
-
-        layoutScale = UI_SCALE
-                * (REFERENCE_GUI_SCALE / (float) guiScaleFactor);
+        // AstryxGuiScreen supplies a fixed viewport equivalent to GUI scale 2.
+        layoutScale = UI_SCALE;
 
         titleScale = 0.39F * layoutScale;
         buttonTextScale = 0.30F * layoutScale;
@@ -481,7 +466,7 @@ public class AstryxOptions extends GuiScreen {
     // ------------------------------------------------------------
 
     @Override
-    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+    protected void drawAstryxScreen(int mouseX, int mouseY, float partialTicks) {
         prepareGuiRendering();
 
         try {
@@ -494,7 +479,7 @@ public class AstryxOptions extends GuiScreen {
             drawTitle();
             drawButtons(mouseX, mouseY);
 
-            super.drawScreen(mouseX, mouseY, partialTicks);
+            drawDefaultScreen(mouseX, mouseY, partialTicks);
         } finally {
             restoreGuiRendering();
         }
