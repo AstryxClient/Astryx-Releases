@@ -2582,13 +2582,13 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
         if (editingServer
                 && serverNameField != null
                 && serverAddressField != null) {
-            int centerX = width / 2;
+            int centerX = this.width / 2;
 
             serverNameField.xPosition = centerX - 125;
-            serverNameField.yPosition = height / 2 - 13;
+            serverNameField.yPosition = this.height / 2 - 13;
 
             serverAddressField.xPosition = centerX - 125;
-            serverAddressField.yPosition = height / 2 + 27;
+            serverAddressField.yPosition = this.height / 2 + 27;
         }
     }
 
