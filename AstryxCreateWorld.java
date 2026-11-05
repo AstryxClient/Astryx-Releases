@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 import java.io.IOException;
 import java.util.Random;
 
-public class AstryxCreateWorld extends GuiScreen {
+public class AstryxCreateWorld extends AstryxGuiScreen {
 
     private static final int PURPLE = 0xFF9B78E8;
     private static final int BLUE = 0xFF648BFA;
@@ -2002,7 +2002,7 @@ public class AstryxCreateWorld extends GuiScreen {
     // ============================================================
 
     @Override
-    public void drawScreen(
+    protected void drawAstryxScreen(
             int mouseX,
             int mouseY,
             float partialTicks

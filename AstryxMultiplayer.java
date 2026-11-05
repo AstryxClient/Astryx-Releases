@@ -34,7 +34,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
-public class AstryxMultiplayer extends GuiScreen implements GuiYesNoCallback {
+public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallback {
 
     private static final int PURPLE = 0xFF9B78E8;
     private static final int BLUE = 0xFF648BFA;
@@ -2503,7 +2503,7 @@ public class AstryxMultiplayer extends GuiScreen implements GuiYesNoCallback {
     // ============================================================
 
     @Override
-    public void drawScreen(
+    protected void drawAstryxScreen(
             int mouseX,
             int mouseY,
             float partialTicks

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class AstryxVideoSettings extends GuiScreen {
+public class AstryxVideoSettings extends AstryxGuiScreen {
 
     private static final int DONE_BUTTON_ID = 200;
 
@@ -78,17 +78,14 @@ public class AstryxVideoSettings extends GuiScreen {
     // ------------------------------------------------------------
 
     private void updateScale() {
-        ScaledResolution resolution = new ScaledResolution(mc);
-
-        scaleFactor = Math.max(1.0F, resolution.getScaleFactor());
-
-        // Convert Astryx's fixed physical size into Minecraft GUI coordinates.
-        layoutScale = UI_SCALE / scaleFactor;
+        // Preserve the original dimensions at the shared reference scale.
+        // AstryxGuiScreen handles the conversion for every Minecraft GUI scale.
+        scaleFactor = REFERENCE_GUI_SCALE;
+        layoutScale = UI_SCALE / REFERENCE_GUI_SCALE;
     }
 
     /**
-     * Converts a physical pixel measurement into Minecraft GUI coordinates.
-     * Unlike layoutScale, this preserves existing minimum dimensions.
+     * Converts a reference-screen pixel measurement into virtual GUI coordinates.
      */
     private int px(float physicalPixels) {
         return Math.max(1, Math.round(physicalPixels / scaleFactor));
@@ -330,12 +327,12 @@ public class AstryxVideoSettings extends GuiScreen {
     // ------------------------------------------------------------
 
     @Override
-    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+    protected void drawAstryxScreen(int mouseX, int mouseY, float partialTicks) {
         drawGalaxyBackground();
         drawPanel();
         drawTitle();
 
-        super.drawScreen(mouseX, mouseY, partialTicks);
+        drawDefaultScreen(mouseX, mouseY, partialTicks);
     }
 
     // ------------------------------------------------------------

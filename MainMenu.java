@@ -20,7 +20,7 @@ import java.awt.font.GlyphVector;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class MainMenu extends GuiScreen {
+public class MainMenu extends AstryxGuiScreen {
 
     private static final float UI_SCALE = 1.00F;
     private static final float DESIGN_SCALE = 0.80F;
@@ -115,25 +115,13 @@ public class MainMenu extends GuiScreen {
         int centerX = width / 2;
 
         /*
-         * Minecraft GUI scale changes the number of logical GUI
-         * coordinates available on screen.
-         *
-         * Dividing by the actual scale factor compensates for this,
-         * keeping the menu's physical pixel dimensions consistent.
-         *
-         * UI_SCALE remains the shared Astryx scale. DESIGN_SCALE
-         * preserves this menu's existing visual proportions.
+         * Preserve this menu's existing proportions at the shared
+         * reference viewport. AstryxGuiScreen keeps that viewport
+         * identical at every Minecraft GUI scale.
          */
-        ScaledResolution resolution = new ScaledResolution(mc);
-
-        int minecraftScaleFactor = Math.max(
-                1,
-                resolution.getScaleFactor()
-        );
-
         layoutScale = (UI_SCALE / 0.35F)
                 * DESIGN_SCALE
-                / minecraftScaleFactor;
+                / REFERENCE_GUI_SCALE;
 
         titleScale = 0.43F * layoutScale;
         taglineScale = 0.245F * layoutScale;
@@ -307,7 +295,7 @@ public class MainMenu extends GuiScreen {
     // ------------------------------------------------------------
 
     @Override
-    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+    protected void drawAstryxScreen(int mouseX, int mouseY, float partialTicks) {
         prepareGuiRendering();
 
         try {
@@ -316,7 +304,7 @@ public class MainMenu extends GuiScreen {
             drawBranding();
             drawButtons(mouseX, mouseY);
 
-            super.drawScreen(mouseX, mouseY, partialTicks);
+            drawDefaultScreen(mouseX, mouseY, partialTicks);
         } finally {
             restoreGuiRendering();
         }
