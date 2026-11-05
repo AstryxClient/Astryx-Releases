@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class AstryxOptions extends AstryxGuiScreen {
 
-    private static final float UI_SCALE = 1.30F;
+    private static final float UI_SCALE = 1.10F;
 
     private final GuiScreen parent;
 
