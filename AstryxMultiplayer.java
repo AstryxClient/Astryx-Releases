@@ -40,10 +40,10 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     private static final int BLUE = 0xFF648BFA;
 
     private static final int PARTICLE_COUNT = 65;
-    private static final int CARD_HEIGHT = 30;
-    private static final int CARD_GAP = 4;
+    private static final int CARD_HEIGHT = 40;
+    private static final int CARD_GAP = 6;
 
-    private static final float PING_SCALE = 0.16F;
+    private static final float PING_SCALE = 0.18F;
     private static final long RETRY_DELAY = 2500L;
 
     private final GuiScreen parent;
@@ -109,7 +109,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     // ============================================================
 
     private int getHeaderButtonHeight() {
-        return clamp(height / 14, 31, 36);
+        return clamp(height / 18, 24, 27);
     }
 
     private int getHeaderButtonY() {
@@ -125,11 +125,11 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     }
 
     private int getJoinLastWidth() {
-        return clamp(width / 3, 125, 165);
+        return clamp(width / 4, 96, 120);
     }
 
     private int getRefreshWidth() {
-        return clamp(width / 8, 60, 76);
+        return clamp(width / 10, 48, 58);
     }
 
     private int getJoinLastX() {
@@ -220,7 +220,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
 
     private void updateListBounds() {
         listTop = Math.max(42, height / 10);
-        listBottom = Math.max(listTop + 34, height - 42);
+        listBottom = Math.max(listTop + CARD_HEIGHT, height - 64);
     }
 
     @Override
@@ -739,16 +739,16 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
         }
 
         int gap = 6;
-        int buttonHeight = 20;
+        int buttonHeight = 28;
         int sideMargin = 18;
-        int backWidth = 76;
+        int backWidth = 90;
 
         int availableWidth = Math.max(
                 1,
                 width - sideMargin - backWidth - gap - sideMargin
         );
 
-        int y = height - 27;
+        int y = height - 35;
 
         if (hasSelection()) {
             int buttonCount = 4;
@@ -756,7 +756,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
             int buttonWidth = Math.max(
                     1,
                     Math.min(
-                            112,
+                            134,
                             (availableWidth - gap * (buttonCount - 1))
                                     / buttonCount
                     )
@@ -862,7 +862,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     // ============================================================
 
     private int getListWidth() {
-        return Math.max(240, Math.min(700, width - 44));
+        return Math.max(1, Math.min(840, width - 32));
     }
 
     private int getListLeft() {
@@ -983,9 +983,9 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
             );
         }
 
-        drawServerIcon(server, x + 8, y + 4, 22);
+        drawServerIcon(server, x + 8, y + 5, 30);
 
-        int textLeft = x + 34;
+        int textLeft = x + 46;
         int arrowX = x + cardWidth - 26;
         int textRight = arrowX - 7;
         int textWidth = Math.max(40, textRight - textLeft);
@@ -996,10 +996,10 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
                 : server.serverName;
 
         regularFont.drawString(
-                trimText(serverName, textWidth, 0.16F),
+                trimText(serverName, textWidth, 0.20F),
                 textLeft,
-                y + 2,
-                0.16F,
+                y + 3,
+                0.20F,
                 0xFFFFFFFF
         );
 
@@ -1008,8 +1008,6 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
                 || "Pinging...".equalsIgnoreCase(server.serverMOTD)
                 ? server.serverIP
                 : cleanMotd(server.serverMOTD);
-
-        drawVanillaMotd(motd, textLeft, y + 14, textWidth);
 
         String ping;
         int pingColor;
@@ -1036,8 +1034,14 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
             }
         }
 
+        int motdWidth = Math.max(0, textWidth
+                - boldFont.getStringWidth(ping, PING_SCALE) - 8);
+        if (motdWidth > 0) {
+            drawVanillaMotd(motd, textLeft, y + 22, motdWidth);
+        }
+
         drawBoldRightAligned(
-                ping, textRight, y + 14, pingColor, PING_SCALE
+                ping, textRight, y + 22, pingColor, PING_SCALE
         );
 
         int arrowY = y + 1;
@@ -1204,7 +1208,7 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
             return;
         }
 
-        float scale = 0.70F;
+        float scale = 0.85F;
         int scaledMaxWidth = (int) (maxWidth / scale);
 
         String trimmed = fontRendererObj.trimStringToWidth(
@@ -1505,9 +1509,9 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
     }
 
     private void drawFooter() {
-        int top = height - 52;
+        int top = height - 60;
 
-        drawRect(0, top, width, height - 31, 0xCC090A12);
+        drawRect(0, top, width, height - 39, 0xCC090A12);
         drawRect(0, top, width, top + 1, 0x443F3970);
 
         String status = statusMessage;
@@ -1638,14 +1642,19 @@ public class AstryxMultiplayer extends AstryxGuiScreen implements GuiYesNoCallba
             );
         }
 
+        float textScale = 0.19F;
+        float textWidth = regularFont.getStringWidthFloat(button.label, textScale);
+        if (textWidth > button.width - 10) {
+            textScale *= Math.max(1, button.width - 10) / textWidth;
+        }
         float textY = button.y
-                + (button.height - regularFont.getHeight(0.16F)) / 2.0F;
+                + (button.height - regularFont.getHeight(textScale)) / 2.0F;
 
         regularFont.drawCenteredString(
                 button.label,
                 button.x + button.width / 2.0F,
                 textY,
-                0.16F,
+                textScale,
                 0xFFF3F0FF
         );
     }

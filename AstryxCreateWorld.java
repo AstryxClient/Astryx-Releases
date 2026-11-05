@@ -379,10 +379,10 @@ public class AstryxCreateWorld extends AstryxGuiScreen {
                 contentWidth - s(12)
         );
 
-        int fieldX = left + Math.min(s(10), Math.max(0, contentWidth / 10));
+        int fieldX = left + (contentWidth - fieldWidth) / 2;
 
-        int nameY = getContentTop() + s(62);
-        int seedY = getContentTop() + s(116);
+        int nameY = getContentTop() + s(55);
+        int seedY = getContentTop() + s(109);
 
         int overviewFieldHeight = Math.max(12, s(29));
 
@@ -1283,7 +1283,21 @@ public class AstryxCreateWorld extends AstryxGuiScreen {
                 field.isFocused() ? PURPLE : 0xFF454153
         );
 
-        field.drawTextBox();
+        // Background-free vanilla fields draw text at yPosition, not at
+        // the vertical centre. Translate only rendering, retaining the full
+        // input bounds for clicking, focus and cursor placement.
+        GL11.glPushMatrix();
+        try {
+            GL11.glTranslatef(
+                    0.0F,
+                    y + (boxHeight - fontRendererObj.FONT_HEIGHT) / 2.0F
+                            - field.yPosition,
+                    0.0F
+            );
+            field.drawTextBox();
+        } finally {
+            GL11.glPopMatrix();
+        }
     }
 
     private void drawOptionCard(
