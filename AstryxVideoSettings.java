@@ -21,7 +21,7 @@ public class AstryxVideoSettings extends AstryxGuiScreen {
 
     // Fixed Astryx interface scale.
     // This will eventually be controlled through Client Settings.
-    private static final float UI_SCALE = 1.38F;
+    private static final float UI_SCALE = 1.65F;
 
     private static final GameSettings.Options[] VIDEO_OPTIONS = {
             GameSettings.Options.GRAPHICS,
