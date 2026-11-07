@@ -20,7 +20,7 @@ A regular Forge or Fabric profile does not automatically include Astryx's module
 
 Astryx includes custom menus, a HUD editor and module profiles. HUD elements can be moved and resized, with appearance options such as text colour, background transparency and font selection. Module settings vary by feature.
 
-Examples of the modules being developed:
+Examples of the modules included:
 
 | Module | What it does |
 | --- | --- |
