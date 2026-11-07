@@ -10,7 +10,7 @@ The project is still in development. This repository holds the published AstryxC
 | --- | --- |
 | Astryx Client | The current available Astryx release is for Minecraft **1.8.9**, using Forge **11.15.1.2318** |
 | Forge | Other stable Minecraft releases where Forge publishes support (You can use the mod manager to customise)|
-| Fabric | Other stable Minecraft releases where Fabric publishes support (You can also use the mod manager here|
+| Fabric | Other stable Minecraft releases where Fabric publishes support (You can also use the mod manager here)|
 
 The launcher groups versions into **Astryx**, **Forge** and **Fabric**, with a searchable release picker.
 
