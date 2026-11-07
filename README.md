@@ -1,25 +1,85 @@
 # Astryx Client
 
-Astryx is a Minecraft: Java Edition client and Windows launcher, currently in development. This repository contains the published AstryxCore JAR and the release manifest used by the launcher.
+Astryx is an independent Minecraft: Java Edition client and Windows launcher. It combines a customisable HUD and client modules with version installation and mod management.
 
-## The client
+The project is still in development. This repository holds the published AstryxCore JAR and the manifest used to deliver client updates.
 
-Astryx adds custom menus, a movable HUD and configurable modules for things such as FPS, CPS, coordinates, keystrokes and the scoreboard. HUD elements can be positioned and resized, with appearance settings and profiles for different setups.
+## Versions
 
-The current Astryx release targets **Minecraft 1.8.9 with Forge 11.15.1.2318**. We hope to bring Astryx to more Minecraft versions in the future; no dates are set yet.
+| Profile | Availability |
+| --- | --- |
+| Astryx Client | Minecraft **1.8.9**, using Forge **11.15.1.2318** |
+| Forge | Other stable Minecraft releases where Forge publishes support |
+| Fabric | Other stable Minecraft releases where Fabric publishes support |
 
-## The launcher
+The launcher groups versions into **Astryx**, **Forge** and **Fabric**, with a searchable release picker. Snapshots are hidden. Forge and Fabric installations use separate game folders for their mods, configuration and saves.
 
-The launcher installs Astryx and provides separate Forge and Fabric profiles for other supported Minecraft releases. The version browser groups Astryx, Forge and Fabric, with snapshots hidden. Forge and Fabric profiles have their own mods and configuration folders; they do not include Astryx's client features unless an Astryx build exists for that version.
+A regular Forge or Fabric profile does not automatically include Astryx's modules. We hope to release Astryx for more Minecraft versions in the future, but no dates or additional versions are confirmed.
 
-The mod manager includes a Modrinth browser filtered by the selected Minecraft version and loader. It supports downloading mods and required project dependencies, importing JARs, enabling or disabling mods, and removing them to a recovery folder.
+## Client features
 
-Astryx downloads are checked against the SHA-256 checksum in `manifest.json`. OptiFine for Astryx 1.8.9 is fetched from its official site during installation and is not hosted in this repository.
+Astryx includes custom menus, a HUD editor and module profiles. HUD elements can be moved and resized, with appearance options such as text colour, background transparency and font selection. Module settings vary by feature.
 
-## Development status
+Examples of the modules being developed:
 
-Installation, mod management and the launcher interface are still being refined. Microsoft sign-in is implemented, but Minecraft Services is currently rejecting Astryx's app registration; API approval is required before that sign-in flow can be used. Development builds also include local testing profiles.
+| Module | What it does |
+| --- | --- |
+| FPS, CPS and Keystrokes | Show frame rate, click counts and keyboard/mouse input on the HUD. |
+| Coordinates, Clock and Compass | Display position, time and heading. |
+| Nick Detector | Attempts to identify disguised players on Hypixel and mark their names. Detection depends on the data available and should not be treated as proof. |
+| Urchin Tools | Looks up player tags using the user's Urchin API key. Stats and duels commands use the separate stats service. |
+| TAB Editor | Adds display options to the Minecraft player list, including stats, tags and NPC filtering where supported. |
+| Notifier | Provides configurable alerts for player stats and likely parties, with local or party-chat notification options. |
+| Scoreboard | Customises the scoreboard's appearance and display options. |
+| Armour Status and Effects | Display equipped armour durability and active potion effects. |
+| TNT Timer | Displays a countdown above primed TNT. |
+| Waypoints | Adds named locations with configurable markers and labels. |
+| Zoom and Crosshair | Provide zoom controls and custom crosshair presets. |
+| Toggle Sprint / Sneak | Toggle movement states through configurable binds, with optional HUD status. |
+| Chat | Adds chat appearance controls and per-message copy/delete actions. |
+| Item Physics and Block Outline | Customise dropped-item rendering and the selected block's outline. |
 
-Launcher data and logs are stored in `%AppData%\AstryxClient`. When reporting a problem, include the selected Minecraft version, loader and relevant logs. Remove tokens and personal information before sharing them.
+Features are still being refined, and their behaviour can depend on the Minecraft version, server and external services. Server-specific modules are not a claim of approval by that server; check its rules before using them.
 
-Astryx is an independent project and is not affiliated with Mojang or Microsoft.
+## Launcher and mod manager
+
+The Windows launcher provides:
+
+- Installation and repair of the Astryx client.
+- Separate Forge and Fabric profiles for supported Minecraft releases.
+- A Modrinth browser filtered by the selected profile's Minecraft version and loader.
+- Downloads of compatible mods and required project dependencies.
+- Local JAR imports, mod enable/disable controls and recoverable removal.
+- Memory allocation and Minecraft log settings.
+
+The installed-mod list belongs to the selected profile. Removed mods are moved into that profile's `removed-mods` folder so they can be recovered.
+
+AstryxCore downloads are verified against the SHA-256 checksum in `manifest.json`. Modrinth downloads are checked against the file hashes supplied by Modrinth. These checks detect changed or corrupted downloads; they do not guarantee that third-party mods are compatible with one another.
+
+Astryx 1.8.9 installation fetches OptiFine from its official site. OptiFine is not hosted in this repository.
+
+## Installation
+
+Windows builds are packaged as `AstryxSetup.exe`. The installer places the launcher in the current user's Programs folder, creates a Start menu shortcut and offers a desktop shortcut. It includes .NET and checks for WebView2, installing that runtime when needed. Downloading WebView2 and Minecraft files requires an internet connection.
+
+Published downloads belong in this repository's [Releases](https://github.com/AstryxClient/Astryx-Releases/releases) section. The source-code ZIP generated by GitHub is not the Windows installer.
+
+## Current status
+
+Minecraft Services currently rejects Astryx's Microsoft application registration. Microsoft sign-in requires Minecraft API approval before it can be used successfully. Development builds also contain local testing profiles; these are not authenticated Microsoft accounts.
+
+Forge/Fabric installation, module behaviour and the launcher interface are under active development. Expect fixes and changes between builds.
+
+## Files and support
+
+Launcher data, game installations and logs are stored under:
+
+```text
+%AppData%\AstryxClient
+```
+
+Uninstalling the launcher preserves that data, including instances, mods and saves.
+
+When reporting a problem, include the selected profile, Minecraft version, loader, steps to reproduce it and relevant logs. Remove authentication tokens, API keys and personal information before sharing files.
+
+Astryx is not affiliated with Mojang, Microsoft, Hypixel, Modrinth or Urchin.
