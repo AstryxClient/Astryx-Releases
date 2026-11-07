@@ -39,7 +39,7 @@ Examples of the modules included:
 | Chat | Adds chat appearance controls and per-message copy/delete actions. |
 | Item Physics and Block Outline | Customise dropped-item rendering and the selected block's outline. |
 
-Features are still being refined, and their behaviour can depend on the Minecraft version, server and external services. Server-specific modules are not a claim of approval by that server; check its rules before using them although you should be alright to use them but we cannot guarantee that especially if the rules change. (We so far only know the modules are (currently) allowed on Hypixel, use of modules on other servers is at your own risk.)
+Features are still being refined, and their behaviour can depend on the Minecraft version, server and external services. Server-specific modules are not a claim of approval by that server; check its rules before using them although you should be alright to use them but we cannot guarantee that especially if the rules change. (We so far only believe the modules are (currently) allowed on Hypixel, use of modules on other servers is at your own risk.)
 
 ## Launcher and mod manager
 
