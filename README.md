@@ -48,10 +48,8 @@ The Astryx launcher provides:
 - Installation and repair of Minecraft Releases for Forge, Fabric and Astryx's own releases.
 - A Modrinth browser filtered by the selected profile's Minecraft version and loader.
 - Downloads of compatible mods and required project dependencies.
-- Local JAR imports, mod enable/disable controls and recoverable removal of mods.
+- Local JAR imports, mod enable/disable controls.
 - Memory allocation and Minecraft log settings.
-
-The installed-mod list belongs to the selected profile. Removed mods are moved into that profile's `removed-mods` folder so they can be recovered.
 
 AstryxCore downloads are verified against the SHA-256 checksum in `manifest.json`. Modrinth downloads are checked against the file hashes supplied by Modrinth. These checks detect changed or corrupted downloads; they do not guarantee that third-party mods are compatible with one another or allowed on specific servers, use at your own risk.
 
