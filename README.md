@@ -74,7 +74,7 @@ Forge/Fabric installation, module behaviour and the launcher interface are under
 Launcher data, game installations and logs are stored under:
 
 ```text
-%AppData%\Roaming\AstryxClient
+%AppData%\AstryxClient
 ```
 
 Uninstalling the launcher preserves that data, including instances, mods and saves.
