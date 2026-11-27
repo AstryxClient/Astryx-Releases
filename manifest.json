@@ -7,8 +7,8 @@
       "name": "Astryx 1.8.9",
       "minecraftVersion": "1.8.9",
       "forgeProfile": "1.8.9-forge1.8.9-11.15.1.2318-1.8.9",
-      "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/AstryxCore-0.1.21.jar",
-      "coreJarSha256": "6B86CE0DDD4C4295A60269D36D2703640BB4AD2228CF54723DBA01A02D819016"
+      "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/AstryxCore-0.1.22.jar",
+      "coreJarSha256": "6A08CC557F9AF7C937F551285FAEC7F8A5BED806DDEFFBD1BC035800A7BB5CA7"
     }
   ]
 }
