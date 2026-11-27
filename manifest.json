@@ -10,5 +10,6 @@
       "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/AstryxCore-0.1.23.jar",
       "coreJarSha256": "CB95F9383D534925796E3960B3A8D4316C7984BDED16F0BF81C789E6E8FFDB4D"
     }
-  ]
+  ],
+  "fabricCatalog": true
 }
