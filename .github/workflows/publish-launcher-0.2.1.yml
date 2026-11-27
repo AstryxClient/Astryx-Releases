@@ -1,0 +1,31 @@
+name: Publish launcher 0.2.1
+on:
+  push:
+    branches: [main]
+    paths: ['launcher-updates/0.2.1.bsdiff']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: publish-astryx-launcher
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct and verify the tested Windows build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/baseline" "$RUNNER_TEMP/output"
+          gh release download launcher -p AstryxClient.exe -D "$RUNNER_TEMP/baseline"
+          python3 launcher-updates/restore-0.2.1.py "$RUNNER_TEMP/baseline/AstryxClient.exe" launcher-updates/0.2.1.bsdiff "$RUNNER_TEMP/output/AstryxClient.exe"
+      - name: Publish the verified file
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          file="$RUNNER_TEMP/output/AstryxClient.exe"
+          if ! gh release view launcher-0.2.1 >/dev/null 2>&1; then
+            gh release create launcher-0.2.1 "$file" --target "$GITHUB_SHA" --title "Astryx Launcher 0.2.1" --notes-file launcher-updates/0.2.1.md
+          fi
+          gh release upload launcher "$file" --clobber
+          gh release edit launcher --notes-file launcher-updates/0.2.1.md

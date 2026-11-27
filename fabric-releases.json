@@ -1,26 +1,226 @@
 [
   {
+    "id": "astryx-fabric-1.12.2",
+    "name": "Astryx 1.12.2 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.12.2",
+    "forgeProfile": "fabric-loader-0.16.14-1.12.2",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.12.2-preview.2.jar",
+    "coreJarSha256": "B90755E4FFEE2AD913840B29A0B81D6B3E9171A7BE5BDE8BE29351E4E1B3672D"
+  },
+  {
+    "id": "astryx-fabric-1.16.5",
+    "name": "Astryx 1.16.5 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.16.5",
+    "forgeProfile": "fabric-loader-0.16.14-1.16.5",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.16.5-preview.2.jar",
+    "coreJarSha256": "E2B0A78C5F3CEF281348E8ACCD2706C84B6770F69C196A864E9EE8A8AFC6DE23"
+  },
+  {
+    "id": "astryx-fabric-1.17.1",
+    "name": "Astryx 1.17.1 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.17.1",
+    "forgeProfile": "fabric-loader-0.16.14-1.17.1",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.17.1-preview.2.jar",
+    "coreJarSha256": "D442B02AA3517CBB5F45BD38E4D8A8E2B49F9133C2A6F8846237E92A73B11578"
+  },
+  {
+    "id": "astryx-fabric-1.18.2",
+    "name": "Astryx 1.18.2 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.18.2",
+    "forgeProfile": "fabric-loader-0.16.14-1.18.2",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.18.2-preview.2.jar",
+    "coreJarSha256": "E70B4FF202A9F63C0C51D1243FB9015253F39C2E215F08D7E8C86880A4E2A375"
+  },
+  {
+    "id": "astryx-fabric-1.20",
+    "name": "Astryx 1.20 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.20",
+    "forgeProfile": "fabric-loader-0.16.14-1.20",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20-preview.2.jar",
+    "coreJarSha256": "EA09D9E33DCE1BEEFC536C967521DDCE65BBBD9005316E612C9B9E6410BF0E22"
+  },
+  {
     "id": "astryx-fabric-1.20.1",
     "name": "Astryx 1.20.1 \u00b7 Fabric Preview",
     "minecraftVersion": "1.20.1",
     "forgeProfile": "fabric-loader-0.16.14-1.20.1",
-    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20.1-preview.1.jar",
-    "coreJarSha256": "406EA1EB930682B52CF63DD521FD2846765B81B079561D57A7BC0CC6574D1CD9"
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20.1-preview.2.jar",
+    "coreJarSha256": "942C110F95A24C9FC880DB2EC5EC03E517B59D50B821948A2B759A5FE66D822D"
+  },
+  {
+    "id": "astryx-fabric-1.20.2",
+    "name": "Astryx 1.20.2 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.20.2",
+    "forgeProfile": "fabric-loader-0.16.14-1.20.2",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20.2-preview.2.jar",
+    "coreJarSha256": "DC51FDB688AE3893D4FAEB5EFDBF576FAB19E3B16EB441DAB2E79BF48344665D"
+  },
+  {
+    "id": "astryx-fabric-1.20.3",
+    "name": "Astryx 1.20.3 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.20.3",
+    "forgeProfile": "fabric-loader-0.16.14-1.20.3",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20.3-preview.2.jar",
+    "coreJarSha256": "4CDB87D0BB727D837B743C77E897A9D9066B9F50D9F004A57220C7D4792DA0B1"
+  },
+  {
+    "id": "astryx-fabric-1.20.4",
+    "name": "Astryx 1.20.4 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.20.4",
+    "forgeProfile": "fabric-loader-0.16.14-1.20.4",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20.4-preview.2.jar",
+    "coreJarSha256": "A6833C0DE7CE72D828790534B085A944D4BED978C53921DBB1D32EEBF62F0C29"
+  },
+  {
+    "id": "astryx-fabric-1.20.5",
+    "name": "Astryx 1.20.5 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.20.5",
+    "forgeProfile": "fabric-loader-0.16.14-1.20.5",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20.5-preview.2.jar",
+    "coreJarSha256": "88ED4A59CAE648D7A63C8862B561FC4FAC08EB71F28A4787752C6EDFE73E1382"
+  },
+  {
+    "id": "astryx-fabric-1.20.6",
+    "name": "Astryx 1.20.6 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.20.6",
+    "forgeProfile": "fabric-loader-0.16.14-1.20.6",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.20.6-preview.2.jar",
+    "coreJarSha256": "A50D0022FB77B1F073A79C9063E42F32FC080426E0B3225328B4F36F81F9E346"
+  },
+  {
+    "id": "astryx-fabric-1.21",
+    "name": "Astryx 1.21 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21",
+    "forgeProfile": "fabric-loader-0.16.14-1.21",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21-preview.2.jar",
+    "coreJarSha256": "5493FD1D222BE964DFFEE196CD4CC9FC15DBBC1EAF2F12E31C93B70478AC1E07"
   },
   {
     "id": "astryx-fabric-1.21.1",
     "name": "Astryx 1.21.1 \u00b7 Fabric Preview",
     "minecraftVersion": "1.21.1",
     "forgeProfile": "fabric-loader-0.16.14-1.21.1",
-    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.1-preview.1.jar",
-    "coreJarSha256": "5C6B2EED05E2108D28813345B0059596CD3E043E2271B6E2140B45C366DABD0A"
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.1-preview.2.jar",
+    "coreJarSha256": "BB8CA49E2085316B44DB56DB5BC2DDA3C211F397BC2116E9FF765326A0655FD9"
+  },
+  {
+    "id": "astryx-fabric-1.21.2",
+    "name": "Astryx 1.21.2 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.2",
+    "forgeProfile": "fabric-loader-0.16.14-1.21.2",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.2-preview.2.jar",
+    "coreJarSha256": "B2215712384161FF96AA5F4C4BB630F978F0CF5E97D3B19168E9D45D0B67822F"
+  },
+  {
+    "id": "astryx-fabric-1.21.3",
+    "name": "Astryx 1.21.3 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.3",
+    "forgeProfile": "fabric-loader-0.16.14-1.21.3",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.3-preview.2.jar",
+    "coreJarSha256": "CE9E8031C6DB6392082BBBA437781BFE342D4A23A06FB6270A269A47F365452C"
   },
   {
     "id": "astryx-fabric-1.21.4",
     "name": "Astryx 1.21.4 \u00b7 Fabric Preview",
     "minecraftVersion": "1.21.4",
     "forgeProfile": "fabric-loader-0.16.14-1.21.4",
-    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.4-preview.1.jar",
-    "coreJarSha256": "3B06429B48D7DCDD92ACA0A56A231DB0BD4607D862F7B3A7B35DC08AF0B7112A"
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.4-preview.2.jar",
+    "coreJarSha256": "A406652370C1FE1519679B53CCE00C7722C87F5C3079C342324D689F7B36F3B5"
+  },
+  {
+    "id": "astryx-fabric-1.21.5",
+    "name": "Astryx 1.21.5 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.5",
+    "forgeProfile": "fabric-loader-0.16.14-1.21.5",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.5-preview.2.jar",
+    "coreJarSha256": "B6A1654D69528DD03BDF3B24B4943EEE3C495359DFFFEA0D9839C97CC17AB47E"
+  },
+  {
+    "id": "astryx-fabric-1.21.6",
+    "name": "Astryx 1.21.6 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.6",
+    "forgeProfile": "fabric-loader-0.16.14-1.21.6",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.6-preview.2.jar",
+    "coreJarSha256": "37A0A925443EDA6C029BB5F37C5A8D4BBAB81AC421DB882AA922075D0454F5BF"
+  },
+  {
+    "id": "astryx-fabric-1.21.7",
+    "name": "Astryx 1.21.7 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.7",
+    "forgeProfile": "fabric-loader-0.16.14-1.21.7",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.7-preview.2.jar",
+    "coreJarSha256": "30734D494E67327C10F739E2509A525966FE3AFE7B0FD9E28C05A6976B7468D6"
+  },
+  {
+    "id": "astryx-fabric-1.21.8",
+    "name": "Astryx 1.21.8 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.8",
+    "forgeProfile": "fabric-loader-0.16.14-1.21.8",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.8-preview.2.jar",
+    "coreJarSha256": "BBCC37590B1627500A7A1340BD8826413F6BB7915C9C64CB41DB816CF95E998B"
+  },
+  {
+    "id": "astryx-fabric-1.21.9",
+    "name": "Astryx 1.21.9 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.9",
+    "forgeProfile": "fabric-loader-0.18.4-1.21.9",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.9-preview.2.jar",
+    "coreJarSha256": "5CC95E9C1AFFA063FC1D463D0C735AE603611486F92C0C8C68FFED436AE228C5"
+  },
+  {
+    "id": "astryx-fabric-1.21.10",
+    "name": "Astryx 1.21.10 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.10",
+    "forgeProfile": "fabric-loader-0.18.4-1.21.10",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.10-preview.2.jar",
+    "coreJarSha256": "BAEFDF9D04F3A997DC0C8678A3DA00A425EB24F800880AA9E89035698365648B"
+  },
+  {
+    "id": "astryx-fabric-1.21.11",
+    "name": "Astryx 1.21.11 \u00b7 Fabric Preview",
+    "minecraftVersion": "1.21.11",
+    "forgeProfile": "fabric-loader-0.18.4-1.21.11",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-1.21.11-preview.2.jar",
+    "coreJarSha256": "749492E7A1FF5C71F0744407921463043A0D74454586D5C6CD631F4BCA8415FB"
+  },
+  {
+    "id": "astryx-fabric-26.1",
+    "name": "Astryx 26.1 \u00b7 Fabric Preview",
+    "minecraftVersion": "26.1",
+    "forgeProfile": "fabric-loader-0.20.1-26.1",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-26.1-preview.2.jar",
+    "coreJarSha256": "2194C840716E2BFEAB6D7B420A53160325E753DACA778496B5EF92851488F3A0"
+  },
+  {
+    "id": "astryx-fabric-26.1.1",
+    "name": "Astryx 26.1.1 \u00b7 Fabric Preview",
+    "minecraftVersion": "26.1.1",
+    "forgeProfile": "fabric-loader-0.20.1-26.1.1",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-26.1.1-preview.2.jar",
+    "coreJarSha256": "C6271AE1A85AB0D90A09144CDEA50C6F2B28590C0B60328F7771A2480B03D064"
+  },
+  {
+    "id": "astryx-fabric-26.1.2",
+    "name": "Astryx 26.1.2 \u00b7 Fabric Preview",
+    "minecraftVersion": "26.1.2",
+    "forgeProfile": "fabric-loader-0.20.1-26.1.2",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-26.1.2-preview.2.jar",
+    "coreJarSha256": "0A86F47728CD940D2352F0437D13E24D99B57E615E5179A32B52B6946BDBEC91"
+  },
+  {
+    "id": "astryx-fabric-26.2",
+    "name": "Astryx 26.2 \u00b7 Fabric Preview",
+    "minecraftVersion": "26.2",
+    "forgeProfile": "fabric-loader-0.20.1-26.2",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-26.2-preview.2.jar",
+    "coreJarSha256": "82B91DD5B6FC02CB17F20784E366C64CC397543485433BAB4AEB697031E13CCF"
+  },
+  {
+    "id": "astryx-fabric-26.3",
+    "name": "Astryx 26.3 \u00b7 Fabric Preview",
+    "minecraftVersion": "26.3",
+    "forgeProfile": "fabric-loader-0.20.1-26.3",
+    "coreJarUrl": "https://raw.githubusercontent.com/AstryxClient/Astryx-Releases/main/Astryx-Fabric-26.3-preview.2.jar",
+    "coreJarSha256": "1F99A2A96B232426A3CE3A06B0A58983292F255D5A8BD186F947A3BF696F71F2"
   }
 ]
