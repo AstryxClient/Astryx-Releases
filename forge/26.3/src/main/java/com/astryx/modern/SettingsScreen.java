@@ -22,6 +22,7 @@ public final class SettingsScreen extends Screen {
         if(filter==0||filter==2&&ModernClient.enabled("zoom"))modules.add(new String[]{"zoom","Zoom","Hold C for a closer view"});
         pages=Math.max(1,(modules.size()+perPage-1)/perPage);page=Math.min(page,pages-1);
         int right=left+wide,step=(wide-28)/2;
+        add(Glass.action(right-163,top+8,52,19,"Wings",()->GameApi.open(minecraft, new WingsScreen(this))));
         add(Glass.action(right-107,top+8,69,19,"HUD editor",()->GameApi.open(minecraft, new HudEditor(this))));
         add(Glass.action(right-33,top+8,24,19,"×",this::onClose));
         String[] tabs={"All","HUD","Enabled"};

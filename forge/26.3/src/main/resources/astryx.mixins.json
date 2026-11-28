@@ -10,7 +10,9 @@
     "HudHook",
     "ZoomHook",
     "TickHook",
-    "SystemChatHook"
+    "SystemChatHook",
+    "LayerAccess",
+    "AvatarHook"
   ],
   "injectors": {
     "defaultRequire": 1
