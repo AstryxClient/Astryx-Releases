@@ -68,20 +68,4 @@ public final class ModernClient {
         HudLayout.live(draw);
     }
     static int cps(){trim();return clicks.size();}
-    static String resources(Minecraft mc){
-        int iron=0,gold=0,diamonds=0,emeralds=0;
-        var inventory=mc.player.getInventory();
-        for(int i=0;i<inventory.getContainerSize();i++){
-            var stack=inventory.getItem(i);
-            if(stack.is(net.minecraft.world.item.Items.IRON_INGOT))iron+=stack.getCount();
-            else if(stack.is(net.minecraft.world.item.Items.GOLD_INGOT))gold+=stack.getCount();
-            else if(stack.is(net.minecraft.world.item.Items.DIAMOND))diamonds+=stack.getCount();
-            else if(stack.is(net.minecraft.world.item.Items.EMERALD))emeralds+=stack.getCount();
-        }
-        return "Iron "+iron+"   Gold "+gold+"   Dia "+diamonds+"   Em "+emeralds;
-    }
-    private static void metric(StringBuilder line,String value) {
-        if(line.length()>0)line.append("  ·  ");
-        line.append(value);
-    }
 }

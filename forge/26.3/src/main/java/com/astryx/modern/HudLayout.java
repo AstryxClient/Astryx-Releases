@@ -18,7 +18,9 @@ final class HudLayout {
     static Box paint(GuiGraphicsExtractor c,int sw,int sh,HudElement e,String text,boolean selected){
         var font=Minecraft.getInstance().font;
         float scale=(float)clamp(number(e.key+".scale",1),.65,2.5);
-        int width=font.width(text)+12,height=16;
+        var resources = e == HudElement.BED ? BedwarsResources.measure(Minecraft.getInstance()) : null;
+        int width = resources == null ? font.width(text)+12 : resources.width();
+        int height = resources == null ? 16 : resources.height();
         int w=Math.round(width*scale),h=Math.round(height*scale);
         boolean right=ModernClient.settings.getProperty("right","false").equals("true");
         double dx=right?1:(e.ordinal()/8)*.34;
@@ -27,7 +29,9 @@ final class HudLayout {
         int y=(int)Math.round(clamp(number(e.key+".y",dy),0,1)*Math.max(0,sh-h));
         c.pose().pushMatrix();c.pose().translate(x,y);c.pose().scale(scale,scale);
         Glass.panel(c,0,0,width,height,selected?0xffedbaff:0x9d714d92,0xd51e142c);
-        c.fill(1,3,3,height-3,Glass.ACCENT);c.text(font,text,7,4,Glass.WHITE);
+        c.fill(1,3,3,height-3,Glass.ACCENT);
+        if (resources != null) resources.draw(c, font);
+        else c.text(font,text,7,4,Glass.WHITE);
         c.pose().popMatrix();return new Box(x,y,w,h);
     }
     static void live(GuiGraphicsExtractor c){

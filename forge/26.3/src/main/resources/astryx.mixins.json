@@ -9,7 +9,8 @@
     "MouseHook",
     "HudHook",
     "ZoomHook",
-    "TickHook"
+    "TickHook",
+    "SystemChatHook"
   ],
   "injectors": {
     "defaultRequire": 1

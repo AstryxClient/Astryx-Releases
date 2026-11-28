@@ -28,7 +28,10 @@ public final class SettingsScreen extends Screen {
         for(int i=0;i<3;i++){final int index=i;add(Glass.action(left+11+60*i,top+36,56,18,(filter==i?"• ":"")+tabs[i],()->{filter=index;page=0;rebuild();}));}
         for(int i=0;i<perPage&&page*perPage+i<modules.size();i++){
             String[] m=modules.get(page*perPage+i);
-            add(new Glass(left+11+(i%2)*(step+5),top+61+i/2*39,step,34,m[1],m[2],()->ModernClient.enabled(m[0])?"On":"Off",()->{ModernClient.toggle(m[0]);if(filter==2)rebuild();}));
+            boolean resources = m[0].equals("bedwars");
+            if (resources) add(Glass.action(left+11+(i%2)*(step+5)+step-23, top+61+i/2*39,
+                23, 34, "…", () -> GameApi.open(minecraft, new ResourceSettingsScreen(this))));
+            add(new Glass(left+11+(i%2)*(step+5),top+61+i/2*39,resources ? step-25 : step,34,m[1],m[2],()->ModernClient.enabled(m[0])?"On":"Off",()->{ModernClient.toggle(m[0]);if(filter==2)rebuild();}));
         }
         if(pages>1){
             Glass prev=Glass.action(left+11,top+tall-25,49,18,"‹ Prev",()->{page--;rebuild();});prev.active=page>0;add(prev);

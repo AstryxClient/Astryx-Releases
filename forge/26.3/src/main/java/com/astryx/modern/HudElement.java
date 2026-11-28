@@ -50,7 +50,7 @@ enum HudElement {
                 var row=m.getConnection().getPlayerInfo(p.getUUID());return row==null?"":row.getLatency()+" ms";
             case CPS:return ModernClient.cps()+" CPS";
             case XYZ:return "XYZ  "+p.getBlockX()+"  "+p.getBlockY()+"  "+p.getBlockZ();
-            case BED:return ModernClient.resources(m);
+            case BED:return label;
             case HELD:var item=p.getMainHandItem();return item.isEmpty()?"":item.getHoverName().getString()+" ×"+item.getCount();
             case DIRECTION:return p.getDirection().getSerializedName()+" · "+Math.floorMod(Math.round(p.getYRot()),360)+"°";
             case SPEED:return String.format(Locale.ROOT,"%.1f m/s",Math.hypot(p.getDeltaMovement().x,p.getDeltaMovement().z)*20);

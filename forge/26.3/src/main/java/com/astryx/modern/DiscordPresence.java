@@ -23,6 +23,10 @@ public final class DiscordPresence {
     });
     static final long START_SECONDS=ManagementFactory.getRuntimeMXBean().getStartTime()/1000L;
     public static final DiscordPresence INSTANCE=new DiscordPresence();
+    private final PresenceLocation location = new PresenceLocation();
+    public boolean consumeLocation(String message, Minecraft mc) {
+        return location.response(message, mc.level, System.currentTimeMillis());
+    }
     private RandomAccessFile pipe;
     private String sent="";
     private volatile boolean busy;
@@ -36,12 +40,12 @@ public final class DiscordPresence {
         boolean multiplayer=mc.level!=null&&!GameApi.singleplayer(mc)&&server!=null;
         SocketAddress peer=multiplayer&&mc.getConnection()!=null?mc.getConnection().getConnection().getRemoteAddress():null;
         String ip=multiplayer&&publicPeer(peer)?publicAddress(server.ip):"";
+        String host = ip.split(":")[0];
+        boolean hypixel = host.equals("hypixel.net") || host.endsWith(".hypixel.net");
+        location.tick(mc, now, hypixel);
         String details=mc.level==null?(GameApi.screen(mc) instanceof net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen?"On the multiplayer menu":GameApi.screen(mc) instanceof net.minecraft.client.gui.screens.worldselection.SelectWorldScreen?"On the singleplayer menu":GameApi.screen(mc) instanceof net.minecraft.client.gui.screens.TitleScreen?"On the main menu":"In the menus"):GameApi.singleplayer(mc)?"In a singleplayer world":"Playing multiplayer";
-        if(!ip.isEmpty()){
-            String host=ip.split(":")[0];
-            details="Playing "+(host.equals("hypixel.net")||host.endsWith(".hypixel.net")?"Hypixel":host.equals("minemen.club")||host.endsWith(".minemen.club")?"Minemen":host);
-        }
-        String state="";
+        if (!ip.isEmpty()) details = "Playing " + PresenceLocation.serverName(ip);
+        String state = ip.isEmpty() ? "" : location.detail(mc, hypixel);
         JsonObject activity=activity(details,state,ip);
         String signature=activity.toString();
         busy=true;
