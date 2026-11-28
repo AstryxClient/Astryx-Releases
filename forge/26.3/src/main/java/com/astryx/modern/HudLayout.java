@@ -31,7 +31,7 @@ final class HudLayout {
         c.pose().popMatrix();return new Box(x,y,w,h);
     }
     static void live(GuiGraphicsExtractor c){
-        Minecraft mc=Minecraft.getInstance();if(mc.player==null||mc.level==null||mc.gui.hud.isHidden()||mc.gui.screen()!=null)return;
+        Minecraft mc=Minecraft.getInstance();if(mc.player==null||mc.level==null||GameApi.hidden(mc)||GameApi.screen(mc)!=null)return;
         long now=System.nanoTime();
         if(now>=refresh){refresh=now+100_000_000;values.clear();for(HudElement e:HudElement.values())if(ModernClient.enabled(e.key))values.put(e,e.value(mc));}
         for(HudElement e:HudElement.values()){String text=values.get(e);if(text!=null&&!text.isEmpty()&&ModernClient.enabled(e.key))paint(c,c.guiWidth(),c.guiHeight(),e,text,false);}

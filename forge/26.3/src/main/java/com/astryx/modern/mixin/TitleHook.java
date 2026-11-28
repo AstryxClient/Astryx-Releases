@@ -24,10 +24,10 @@ abstract class TitleHook extends Screen {
     private void astryxInit(CallbackInfo ci){
         clearWidgets();astryxButtons.clear();
         int x=width/2-100,y=astryxMenuTop();
-        astryxAction(x,y,200,22,"Singleplayer",()->minecraft.gui.setScreen(new AstryxMenus.Worlds(this)));
-        astryxAction(x,y+26,200,22,"Multiplayer",()->minecraft.gui.setScreen(new AstryxMenus.Servers(this))).active=minecraft.allowsMultiplayer();
-        astryxAction(x,y+52,98,21,"Modules",()->minecraft.gui.setScreen(new SettingsScreen(this)));
-        astryxAction(x+102,y+52,98,21,"Options",()->minecraft.gui.setScreen(new OptionsScreen(this,minecraft.options)));
+        astryxAction(x,y,200,22,"Singleplayer",()->GameApi.open(minecraft, new AstryxMenus.Worlds(this)));
+        astryxAction(x,y+26,200,22,"Multiplayer",()->GameApi.open(minecraft, new AstryxMenus.Servers(this))).active=minecraft.allowsMultiplayer();
+        astryxAction(x,y+52,98,21,"Modules",()->GameApi.open(minecraft, new SettingsScreen(this)));
+        astryxAction(x+102,y+52,98,21,"Options",()->GameApi.open(minecraft, GameApi.options(minecraft, this)));
         astryxAction(x,y+77,200,20,"Quit game",()->minecraft.stop());
     }
     @Inject(method="extractRenderState",at=@At("HEAD"),remap=false,cancellable=true)

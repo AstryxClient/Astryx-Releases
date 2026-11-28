@@ -44,10 +44,20 @@ public final class ModernClient {
             } finally { Files.deleteIfExists(temp); }
         } catch (IOException ex) { LoggerFactory.getLogger("Astryx").warn("Could not save HUD preferences", ex); }
     }
+    public static void rememberServer(Minecraft mc) {
+        var server = mc.getCurrentServer();
+        if (mc.level == null || mc.player == null || server == null || server.isLan() || server.isRealm()) return;
+        if (server.ip.equals(settings.getProperty("server.address"))
+            && server.name.equals(settings.getProperty("server.name"))) return;
+        settings.setProperty("server.address", server.ip);
+        settings.setProperty("server.name", server.name);
+        save();
+    }
+
     public static boolean zooming() {
         Minecraft mc = Minecraft.getInstance();
-        return enabled("zoom") && mc.player != null && mc.gui.screen() == null
-            && InputConstants.isKeyDown(InputConstants.KEY_C);
+        return enabled("zoom") && mc.player != null && GameApi.screen(mc) == null
+            && GameApi.zoomKey(mc);
     }
     public static void click() { trim(); clicks.addLast(System.nanoTime()); }
     private static void trim() {

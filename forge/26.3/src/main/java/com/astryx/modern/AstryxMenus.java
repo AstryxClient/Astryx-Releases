@@ -14,6 +14,21 @@ public final class AstryxMenus {
     }
     public static final class Servers extends JoinMultiplayerScreen {
         public Servers(Screen parent){super(parent);}
+        @Override protected void init() {
+            super.init();
+            String address = ModernClient.settings.getProperty("server.address", "");
+            String name = ModernClient.settings.getProperty("server.name", address);
+            int buttonWidth = Math.min(145, width / 3);
+            String label = "Join last" + (name.isBlank() ? "" : " · " + name);
+            Glass last = Glass.action(width-buttonWidth-6, 5, buttonWidth, 20,
+                font.plainSubstrByWidth(label, buttonWidth-10), () -> {
+                    var saved = getServers().get(address);
+                    join(saved != null ? saved : new net.minecraft.client.multiplayer.ServerData(
+                        name, address, net.minecraft.client.multiplayer.ServerData.Type.OTHER));
+                });
+            last.active = !address.isBlank();
+            addRenderableWidget(last);
+        }
         @Override public void extractBackground(GuiGraphicsExtractor c,int mx,int my,float delta){backdrop(c,width,height);}
     }
     public static final class Worlds extends SelectWorldScreen {

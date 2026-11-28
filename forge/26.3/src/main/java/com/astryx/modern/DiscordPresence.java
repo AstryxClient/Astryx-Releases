@@ -33,10 +33,10 @@ public final class DiscordPresence {
         due=now+2500;
         String id="1575945976609382561";
         ServerData server=mc.getCurrentServer();
-        boolean multiplayer=mc.level!=null&&!mc.hasSingleplayerServer()&&server!=null;
+        boolean multiplayer=mc.level!=null&&!GameApi.singleplayer(mc)&&server!=null;
         SocketAddress peer=multiplayer&&mc.getConnection()!=null?mc.getConnection().getConnection().getRemoteAddress():null;
         String ip=multiplayer&&publicPeer(peer)?publicAddress(server.ip):"";
-        String details=mc.level==null?(mc.gui.screen() instanceof net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen?"On the multiplayer menu":mc.gui.screen() instanceof net.minecraft.client.gui.screens.worldselection.SelectWorldScreen?"On the singleplayer menu":mc.gui.screen() instanceof net.minecraft.client.gui.screens.TitleScreen?"On the main menu":"In the menus"):mc.hasSingleplayerServer()?"In a singleplayer world":"Playing multiplayer";
+        String details=mc.level==null?(GameApi.screen(mc) instanceof net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen?"On the multiplayer menu":GameApi.screen(mc) instanceof net.minecraft.client.gui.screens.worldselection.SelectWorldScreen?"On the singleplayer menu":GameApi.screen(mc) instanceof net.minecraft.client.gui.screens.TitleScreen?"On the main menu":"In the menus"):GameApi.singleplayer(mc)?"In a singleplayer world":"Playing multiplayer";
         if(!ip.isEmpty()){
             String host=ip.split(":")[0];
             details="Playing "+(host.equals("hypixel.net")||host.endsWith(".hypixel.net")?"Hypixel":host.equals("minemen.club")||host.endsWith(".minemen.club")?"Minemen":host);

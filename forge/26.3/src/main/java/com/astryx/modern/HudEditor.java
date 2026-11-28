@@ -11,7 +11,7 @@ public final class HudEditor extends Screen {
     private double offsetX,offsetY;
     private boolean dragging,dirty;
     HudEditor(Screen parent){super(Component.literal("HUD editor"));this.parent=parent;}
-    @Override public void onClose(){minecraft.gui.setScreen(parent);}
+    @Override public void onClose(){GameApi.open(minecraft, parent);}
     @Override public void removed(){if(dirty)ModernClient.save();}
     @Override public void extractRenderState(GuiGraphicsExtractor c,int mx,int my,float delta){
         if(minecraft.level==null)Glass.sky(c,width,height);
@@ -46,8 +46,8 @@ public final class HudEditor extends Screen {
     private void put(String field,double value){ModernClient.settings.setProperty(selected.key+field,Double.toString(value));dirty=true;}
     @Override public boolean mouseReleased(net.minecraft.client.input.MouseButtonEvent click){int button=click.button();if(button==com.mojang.blaze3d.platform.InputConstants.MOUSE_BUTTON_LEFT&&dragging){dragging=false;return true;}return super.mouseReleased(click);}
     @Override public boolean keyPressed(net.minecraft.client.input.KeyEvent input){int key=input.key();
-        if(selected!=null&&(key==46||key==45||key==87||key==86)){
-            put(".scale",HudLayout.clamp(HudLayout.number(selected.key+".scale",1)+(key==46||key==87?.1:-.1),.65,2.5));return true;
+        if(selected!=null&&(GameApi.scaleStep(key)!=0)){
+            put(".scale",HudLayout.clamp(HudLayout.number(selected.key+".scale",1)+GameApi.scaleStep(key),.65,2.5));return true;
         }
         return super.keyPressed(input);
     }

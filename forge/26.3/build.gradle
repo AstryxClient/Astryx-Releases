@@ -6,6 +6,25 @@ plugins {
 group = 'com.astryx.client'
 version = '0.3.0'
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+tasks.withType(JavaCompile).configureEach { options.release = 21 }
+
+def supported = ['26.1':'62.0.9', '26.1.1':'63.0.2', '26.1.2':'64.1.5', '26.2':'65.1.5', '26.3':'66.1.9']
+def target = providers.gradleProperty('minecraftVersion').getOrElse('26.3')
+def loader = supported[target]
+if (!loader) throw new GradleException("Unsupported Minecraft version: " + target)
+def api = target.startsWith('26.1') ? '26.1' : target
+layout.buildDirectory = layout.projectDirectory.dir("build/" + target)
+sourceSets.main.java.srcDir("src/" + api + "/java")
+base.archivesName = "Astryx-Forge-" + target
+
+processResources {
+    def major = loader.tokenize('.')[0].toInteger()
+    def metadata = [target: target, loader: loader, major: major, nextMajor: major + 1]
+    inputs.properties(metadata)
+    filesMatching('META-INF/mods.toml') {
+        filter { line -> metadata.inject(line) { value, entry -> value.replace('@' + entry.key + '@', entry.value.toString()) } }
+    }
+}
 
 minecraft {
     runs {
@@ -23,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation minecraft.dependency('net.minecraftforge:forge:26.3-66.1.9')
+    implementation minecraft.dependency("net.minecraftforge:forge:${target}-${loader}")
 }
 
 jar {

@@ -46,7 +46,7 @@ enum HudElement {
             case XP:return "Level "+p.experienceLevel;
             case FPS:return m.getFps()+" FPS";
             case PING:
-                if(m.getConnection()==null||m.hasSingleplayerServer())return "";
+                if(m.getConnection()==null||GameApi.singleplayer(m))return "";
                 var row=m.getConnection().getPlayerInfo(p.getUUID());return row==null?"":row.getLatency()+" ms";
             case CPS:return ModernClient.cps()+" CPS";
             case XYZ:return "XYZ  "+p.getBlockX()+"  "+p.getBlockY()+"  "+p.getBlockZ();

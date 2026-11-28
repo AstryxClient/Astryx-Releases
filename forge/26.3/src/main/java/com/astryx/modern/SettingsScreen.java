@@ -10,7 +10,7 @@ public final class SettingsScreen extends Screen {
     private int page,filter,perPage,pages,left,top,wide,tall;
     public SettingsScreen(){this(null);}
     public SettingsScreen(Screen parent){super(Component.literal("Astryx modules"));this.parent=parent;}
-    @Override public void onClose(){minecraft.gui.setScreen(parent);}
+    @Override public void onClose(){GameApi.open(minecraft, parent);}
     private void add(Glass widget){buttons.add(widget);addRenderableWidget(widget);}
     private void rebuild(){clearWidgets();buttons.clear();init();}
     @Override protected void init(){
@@ -22,7 +22,7 @@ public final class SettingsScreen extends Screen {
         if(filter==0||filter==2&&ModernClient.enabled("zoom"))modules.add(new String[]{"zoom","Zoom","Hold C for a closer view"});
         pages=Math.max(1,(modules.size()+perPage-1)/perPage);page=Math.min(page,pages-1);
         int right=left+wide,step=(wide-28)/2;
-        add(Glass.action(right-107,top+8,69,19,"HUD editor",()->minecraft.gui.setScreen(new HudEditor(this))));
+        add(Glass.action(right-107,top+8,69,19,"HUD editor",()->GameApi.open(minecraft, new HudEditor(this))));
         add(Glass.action(right-33,top+8,24,19,"×",this::onClose));
         String[] tabs={"All","HUD","Enabled"};
         for(int i=0;i<3;i++){final int index=i;add(Glass.action(left+11+60*i,top+36,56,18,(filter==i?"• ":"")+tabs[i],()->{filter=index;page=0;rebuild();}));}

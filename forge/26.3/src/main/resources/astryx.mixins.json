@@ -2,7 +2,7 @@
   "required": true,
   "package": "com.astryx.modern.mixin",
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_25",
+  "compatibilityLevel": "JAVA_21",
   "client": [
     "TitleHook",
     "KeyboardHook",
