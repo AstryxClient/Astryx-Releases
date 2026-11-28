@@ -11,5 +11,5 @@
       "coreJarSha256": "CB95F9383D534925796E3960B3A8D4316C7984BDED16F0BF81C789E6E8FFDB4D"
     }
   ],
-  "fabricCatalog": true
+  "fabricCatalog": false
 }
