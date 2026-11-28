@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '7.0.41'
+}
+
+group = 'com.astryx.client'
+version = '0.3.0'
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+minecraft {
+    runs {
+        register('client') {
+            workingDir = layout.projectDirectory.dir('run')
+        }
+    }
+}
+
+repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
+}
+
+dependencies {
+    implementation minecraft.dependency('net.minecraftforge:forge:26.3-66.1.9')
+}
+
+jar {
+    manifest.attributes('MixinConfigs': 'astryx.mixins.json', 'Implementation-Version': project.version)
+}

@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.astryx.modern.mixin",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "TitleHook",
+    "KeyboardHook",
+    "MouseHook",
+    "HudHook",
+    "ZoomHook",
+    "TickHook"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
